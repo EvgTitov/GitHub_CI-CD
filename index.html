@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Actions CI/CD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1890ff;
-            --secondary: #f5f5f5;
-            --text: #333;
-            --light: #fff;
-            --dark: #333;
+            --primary: #2196F3;
+            --secondary: #2B2B2B;
+            --text: #F5F5F5;
+            --light: #F5F5F5;
+            --dark: #2B2B2B;
+            --accent: #4CAF50;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: all 0.3s ease;
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--secondary);
             color: var(--text);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .header {
@@ -37,11 +41,19 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            transform: translateY(-100px);
+            opacity: 0;
+            animation: slideUp 1s ease forwards 0.5s;
+        }
+
+        @keyframes slideUp {
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .header p {
@@ -55,83 +67,53 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transform: translateY(100px);
+            opacity: 0;
+            animation: slideDown 1s ease forwards 0.7s;
+        }
+
+        @keyframes slideDown {
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .card {
-            background-color: var(--light);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: var(--secondary);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             padding: 30px;
             width: 100%;
             max-width: 800px;
             margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), #40a9ff);
+            transform: skewX(-45deg);
+            opacity: 0.1;
+            transition: transform 0.3s;
+        }
+
+        .card:hover::before {
+            transform: skewX(-45deg) scaleX(1.2);
         }
 
         .card h2 {
             font-size: 1.8rem;
             margin-bottom: 20px;
+            color: var(--light);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .card ul {
             list-style: none;
             padding: 0;
-        }
-
-        .card ul li {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .card ul li::before {
-            content: "✓";
-            color: var(--primary);
-            margin-right: 10px;
-        }
-
-        .footer {
-            background-color: var(--dark);
-            color: var(--light);
-            padding: 20px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .header, .card {
-                padding: 20px;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .card h2 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header class="header">
-        <h1>GitHub Actions CI/CD</h1>
-        <p>Изучение и реализация непрерывной интеграции и доставки</p>
-    </header>
-
-    <main class="main">
-        <div class="card">
-            <h2>О проекте</h2>
-            <p>Этот сайт посвящен изучению GitHub Actions и реализации CI/CD процессов.</p>
-
-            <h3>План реализации:</h3>
-            <ul>
-                <li>Создание локального репозитория для хранения проекта</li>
-                <li>Размещение репозитория на GitHub</li>
-                <li>Настройка полного CI/CD процесса</li>
-            </ul>
-
-            <p>Цель проекта - освоить базовые принципы работы с GitHub Actions и настроить автоматическую сборку и деплой проекта.</p>
-        </div>
-    </main>
-
-    <footer class="footer">
-        &copy; 2025
+            flex-wrap: wrap;
