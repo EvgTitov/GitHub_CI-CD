@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Развертывание сайта
 
 on:
   push:
@@ -7,19 +7,28 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  deploy:
+    name: Сборка и развертывание сайта
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Клонирование кода
+        uses: actions/checkout@v3
         
-      - name: Validate HTML
-        uses: micmro/html-validator-action@v2
+      - name: Установка зависимостей
+        run: |
+          npm install
+          # Или yarn install, если используете Yarn
+          
+      - name: Сборка проекта
+        run: npm run build
         
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.3.3
+      - name: Проверка HTML
+        uses: dorny/html-proof@v3
+        
+      - name: Развертывание на GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: .
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build
