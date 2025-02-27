@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Code
+      - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: HTML
+      - name: Validate HTML
         uses: micmro/html-validator-action@v2
         
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.3.3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
