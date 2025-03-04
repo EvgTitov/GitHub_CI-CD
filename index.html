@@ -1,93 +1,136 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vladislav SCH</title>
-    <link href="Styles.css" 
-    rel="stylesheet" />
-  </head>
-  <body>
-    <table cellspacing="15">
-      <tr>
-        <td>
-          <img src="sport.jpg"  alt="тут моя фотка" 
-          class="sport"/>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Портфолио DevOps специалиста</title>
+ <style>
+ body {
+ font-family: 'Helvetica Neue', Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: #212529;
+ color: #f8f9fa;
+ }
 
-        </td>
-        <td>
-          <h1>Владислав Щадилов</h1>
-          <p><em>Я основатель одноименного <strong>Youtube канала</strong></em></p>
-          <p>Я люблю путешестовать, заниматься спортом и программировать</p>
-        </td>
-      </tr>
-    </table>
+.header {
+ background-color: #343a40;
+ color: white;
+ padding: 20px;
+ text-align: center;
+ }
 
-    <hr>
+.nav {
+ background-color: #495057;
+ padding: 10px;
+ }
 
-    <h2>Мои социальные сети</h2>
-    <ul>
-      <li><a href="https://instagram.com/vladilen.minin" target="_blank">Instagram</a></li>
-      <li><a target="_blank" href="https://t.me/js_by_vladilen">Telegram</a></li>
-    </ul>
+.nav a {
+ color: white;
+ text-decoration: none;
+ padding: 10px;
+ display: inline-block;
+ }
 
-    <hr>
+.content {
+ padding: 20px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
 
-    <h2>Мои хобби</h2>
-    <ol>
-      <li>Блоггер</li>
-      <li>Быстрая езда на машинах</li>
-      <li>Спорт: ММА, лыжи</li>
-      <li>Путешествия</li>
-    </ol>
+.profile-card {
+ width: 80%;
+ max-width: 800px;
+ background: #343a40;
+ padding: 20px;
+ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ border-radius: 5px;
+ }
 
-    <hr>
+.section {
+ margin-bottom: 30px;
+ }
 
-    <h2>Опыт работы</h2>
-    <table>
-      <tr>
-        <th>Компания</th>
-        <th>Должность</th>
-        <th>Год</th>
-      </tr>
-      <tr>
-        <td>EPAM</td>
-        <td>Software Engineer</td>
-        <td>2016 - 2017</td>
-      </tr>
-      <tr>
-        <td>Software Outsorcing Services</td>
-        <td>Lead Frontend</td>
-        <td>2017 - 2019</td>
-      </tr>
-    </table>
+.skills-bar {
+ width: 100%;
+ background-color: #495057;
+ margin-bottom: 5px;
+ border-radius: 5px;
+ }
 
-    <hr>
+.skills-bar span {
+ display: block;
+ height: 10px;
+ background-color: #17a2b8;
+ border-radius: 5px;
+ }
 
-    <h2>Youtube Курсы</h2>
-    <a href="youtube.html">Посмотреть список</a>
+.footer {
+ background-color: #343a40;
+ color: white;
+ text-align: center;
+ padding: 10px;
+ position: fixed;
+ bottom: 0;
+ width: 100%;
+ }
 
-    <hr>
-    <h2>Связаться со мной</h2>
+.skill {
+ margin-bottom: 15px;
+ }
 
-    <form action="/">
-      <label for="name">Ваше имя:</label>
-      <input type="text" id="name" placeholder="Введите ваше имя...">
+.skill p {
+ margin: 0 0 5px;
+ color: #f8f9fa;
+ }
+ </style>
+</head>
+<body>
+ <div class="header">
+ <h1>Портфолио DevOps специалиста</h1>
+ </div>
 
-      <br>
+ <div class="nav">
+ <a href="#home">Главная</a>
+ <a href="#about">Обо мне</a>
+ <a href="#skills">Навыки</a>
+ <a href="#projects">Проекты</a>
+ <a href="#contact">Контакты</a>
+ </div>
 
-      <label for="email">Ваш Email:</label>
-      <input type="email" id="email" placeholder="Введите email...">
+ <div class="content">
+ <div class="profile-card">
+ <div class="section" id="about">
+ <h2>Обо мне</h2>
+ <p>Начинающий DevOps инженер с опытом работы в автоматизации процессов и управлении инфраструктурой.</p>
+ <p>Специализируюсь на:</p>
+ <ul>
+ <li>Автоматизация развертывания</li>
+ <li>Управление конфигурациями</li>
+ <li>Мониторинг систем</li>
+ <li>CI/CD пайплайны</li>
+ </ul>
+ </div>
 
-      <br>
-
-      <label for="text">Вашe сообщение:</label>
-      <br>
-      <textarea id="text" rows="2" cols="15"></textarea>
-
-      <br>
-
-      <input type="submit" value="Связаться!">
-    </form>
-
-  </body>
-</html>
+ <div class="section" id="skills">
+ <h2>Ключевые навыки</h2>
+ <div class="skill">
+ <p>Git</p>
+ <div class="skills-bar"><span style="width: 80%;"></span></div>
+ </div>
+ <div class="skill">
+ <p>Docker</p>
+ <div class="skills-bar"><span style="width: 70%;"></span></div>
+ </div>
+ <div class="skill">
+ <p>Kubernetes</p>
+ <div class="skills-bar"><span style="width: 60%;"></span></div>
+ </div>
+ <div class="skill">
+ <p>Ansible</p>
+ <div class="skills-bar"><span style="width: 75%;"></span></div>
+ </div>
+ <div class="skill">
+ <p>Terraform</p>
+ <div class="skills-bar"><span style="width: 65%;"></span></
